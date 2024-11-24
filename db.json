@@ -1,0 +1,37 @@
+{
+"users": [
+    {
+      "id": 1,
+      "name": "Alice Silva",
+      "email": "alice.silva@example.com",
+      "socialLoginProvider": "Google"
+    }
+  
+  ],
+
+  "videos": [
+    {
+      "id": 1,
+      "title": "Rick Astley - Never Gonna Give You Up (Official Music Video)",
+      "description": "The official video for “Never Gonna Give You Up” by Rick Astley",
+      "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "thumbnail": "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+      "views": 1200000000,
+      "uploadedAt": "2009-10-25T07:57:33Z"
+    }
+  ],
+
+    "likes": [
+    {
+      "userId": 89,
+      "videoId": 6754
+    }
+  ],
+
+  "watchLater": [
+  
+  ],
+  "favorites": [
+
+  ]
+}
