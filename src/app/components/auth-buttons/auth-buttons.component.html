@@ -1,0 +1,7 @@
+<div *ngIf="!(auth.isAuthenticated$ | async)">
+    <button (click)="loginWithRedirect()">Login</button>
+  </div>
+  
+  <div *ngIf="auth.isAuthenticated$ | async">
+    <span (click)="logout()">Logout</span>
+  </div>
