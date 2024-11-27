@@ -1,0 +1,14 @@
+<div *ngIf="video$ | async as video; else loading">
+    <h1>{{ video?.title }}</h1>
+    <img [src]="video?.thumbnail" alt="{{ video?.title }}" />
+    <p>{{ video?.description }}</p>
+    <p><strong>Views:</strong> {{ video?.views }}</p>
+    <p><strong>Likes:</strong> {{ video?.likes }}</p>
+    <button (click)="likeVideo(video.id)"> Like</button>
+    <p><strong>Favorites:</strong> {{ video?.favorites }}</p>
+    <a [href]="video?.url" target="_blank">Watch on YouTube</a>
+  </div>
+  
+  <ng-template #loading>
+    <p>Loading video...</p>
+  </ng-template>
