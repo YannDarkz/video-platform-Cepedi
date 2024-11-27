@@ -1,0 +1,121 @@
+<app-side-bar></app-side-bar>
+<main>
+    <div class="container-form">
+        <form [formGroup]="searchForm">
+          <input
+            type="search"
+            id="search"
+            autocomplete="off"
+            required
+            name="search"
+            formControlName="search"
+          />
+          <label for="search"><span>Nome do esporte</span></label>
+        </form>
+
+        <ul>
+            <h5>Esportes disponíveis para pesquisa</h5>
+            <li>skate</li>
+            <li>futebol</li>
+            <li>basquete</li>
+            <li>boxe</li>
+        </ul>
+      </div>
+      
+      <div id="output-search" class="container-output-search">
+        <div *ngFor="let video of searchResults" class="single-video-search">
+          <img [src]="video.thumbnail || 'https://picsum.photos/200/150'" [alt]="video.title" />
+          <div>
+            <h4><strong>Titulo:</strong> {{ video.title }} </h4>
+            <p><strong>Curtidas:</strong> {{ video.likes }} likes</p>
+            <p> <strong>Visualizações:</strong> {{ video.views }} views</p>
+            <p><strong>Enviado em:</strong> {{ video.uploadedAt | date:'dd/MM/yyyy' }}</p>
+
+            <button
+            class="watch-button"
+            [routerLink]="['/videos', video.id]"
+          >
+            Assistir
+          </button>
+          </div>
+        </div>
+      </div>
+
+    <div class="container-videos">
+        <h3>Top 3 vídeos mais curtidos</h3>
+      
+        <div class="sub-container-videos">
+          <div
+            class="single-video"
+            *ngFor="let video of topVideos; let i = index"
+          >
+            <div [ngClass]="{ ranking: true, gold: i === 0, silver: i === 1, bronze: i === 2 }">
+              {{ 'Top ' + (i + 1) }}
+            </div>
+            <div class="video">
+              <img  [src]="video.thumbnail || 'https://picsum.photos/200/150'" [alt]="video.title" />
+              <div>
+                <h5 class="titulo">{{ video.title }}</h5>
+                <!-- <p>{{ video.description }}</p> -->
+                <p>{{ video.views }} views</p>
+                <p class="likes">{{ video.likes }} likes</p>
+                <button
+            class="watch-button"
+            [routerLink]="['/videos', video.id]"
+          >
+            Assistir
+          </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- <div class="container-videos">
+        <h3>Top 3 videos mais curtidos</h3>
+
+        <div class="sub-container-videos">
+            <div class="single-video">
+                <div class="ranking gold">top 1</div>
+                <div class="video">
+                    <img src="https://picsum.photos/200/150" alt="video 1" />
+                    <div>
+                        <h5 class="titulo">titulo</h5>
+                        <p>descrição</p>
+                        <p>viwes</p>
+                        <p>likes</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="single-video">
+                <div class="ranking silver">top 2</div>
+                <div class="video">
+                    <img src="https://picsum.photos/200/150" alt="video 1" />
+                    <div>
+                        <h5 class="titulo">titulo</h5>
+                        <p>descrição</p>
+                        <p>viwes</p>
+                        <p>likes</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="single-video">
+                <div class="ranking 3ronze">top 3</div>
+                <div class="video">
+                    <img src="https://picsum.photos/200/150" alt="video 1" />
+                    <div>
+                        <h5 class="titulo">titulo</h5>
+                        <p>descrição</p>
+                        <p>viwes</p>
+                        <p>likes</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div> -->
+
+</main>
