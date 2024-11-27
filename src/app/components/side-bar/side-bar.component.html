@@ -1,0 +1,75 @@
+<nav [class.collapsed]="isCollapsed">
+  <div class="sidebar-top">
+    <a href="#" class="logo__wrapper">
+      <img src="/images/sports_logo.png" alt="Logo" class="logo">
+    </a>
+    <div class="expand-btn" (click)="toggleSidebar()">
+      <img src="/images/chevron.svg" alt="Chevron" [style.transform]="isCollapsed ? 'rotate(0deg)' : 'rotate(180deg)'">
+    </div>
+  </div>
+
+  <div class="sidebar-links">
+    <ul>
+      <li>
+        <a routerLink="/home" routerLinkActive="active" title="home" class="tooltip" [class.active]="activeLink === 'dashboard'"
+          (click)="setActiveLink('dashboard')">
+          <img src="/images/dashboard.svg" alt="Dashboard">
+          <span class="link hide" *ngIf="!isCollapsed">Home</span>
+          <span class="tooltip__content" *ngIf="isCollapsed">Home</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/favorites" routerLinkActive="active" title="favorites" class="tooltip" [class.active]="activeLink === 'project'"
+          (click)="setActiveLink('project')">
+          <img src="/images/analytics.svg" alt="Analytics">
+          <span class="link hide" *ngIf="!isCollapsed">Favoritos</span>
+          <span class="tooltip__content" *ngIf="isCollapsed">Favoritos</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/like-videos" routerLinkActive="active" title="/like-videos" class="tooltip" [class.active]="activeLink === 'help'"
+          (click)="setActiveLink('help')">
+          <img src="/images/help.svg" alt="Help">
+          <span class="link hide" *ngIf="!isCollapsed">Curtidos</span>
+          <span class="tooltip__content" *ngIf="isCollapsed">Curtidos</span>
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="/videos/2" routerLinkActive="active" title="see-later" class="tooltip" [class.active]="activeLink === 'settings'"
+          (click)="setActiveLink('settings')">
+          <img src="/images/settings.svg" alt="Settings">
+          <span class="link hide" *ngIf="!isCollapsed">Mais tarde</span>
+          <span class="tooltip__content" *ngIf="isCollapsed">mais tarde</span>
+        </a>
+      </li>
+
+      <li>
+        <a title="logout" class="tooltip" [class.active]="activeLink === 'logout'"
+        (click)="setActiveLink('logout')">
+          <img src="/images/settings.svg" alt="Settings">
+          <span class="link hide" *ngIf="!isCollapsed">Logout</span>
+          <span class="tooltip__content" *ngIf="isCollapsed">Logout</span>
+        </a>
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="sidebar-bottom">
+    <div class="sidebar__profile">
+      <div class="avatar__wrapper" *ngIf="userData">
+        <img class="avatar" src={{userData.picture}} alt="Profile">
+        <div class="online__status"></div>
+      </div>
+
+      <div class="avatar__name hide" *ngIf="!isCollapsed">
+        <div class="user-profile" *ngIf="userData">
+          <h4>User: <strong>{{userData.name}}</strong></h4>
+          <p>Email:{{userData.email}}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</nav>
