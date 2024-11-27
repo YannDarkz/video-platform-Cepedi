@@ -1,0 +1,54 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, map } from 'rxjs';
+import { IVideo } from '../../interfaces/video.model'; 
+
+@Injectable({
+  providedIn: 'root'
+})
+export class VideoService {
+
+  private apiUrl  = 'http://localhost:3000';
+
+  constructor( private http: HttpClient) { }
+
+  getVideosById(id: string): Observable<IVideo> {
+    return this.http.get<IVideo>(`${this.apiUrl}/videos/${id}`);
+  }
+
+  getAllVideos(): Observable<IVideo[]> {
+    return this.http.get<IVideo[]>(`${this.apiUrl}/videos`);
+  }
+
+  updateLikes(videoId: string, likes: number): Observable<IVideo> {
+    return this.http.patch<IVideo>(`${this.apiUrl}/videos/${videoId}`, { likes });
+  }
+  
+  updateViews(videoId: string, views: number): Observable<IVideo> {
+    console.log('Chamando API para atualizar visualizações:', videoId, views);
+    
+    return this.http.patch<IVideo>(`${this.apiUrl}/videos/${videoId}`, { views });
+
+  }
+
+  getTopLikedVideos(limit: number): Observable<IVideo[]> {
+    return this.http.get<IVideo[]>(`${this.apiUrl}/videos`).pipe(
+      map((videos) =>
+        videos
+          .sort((a, b) => (b.likes || 0) - (a.likes || 0)) // Ordenar por likes em ordem decrescente
+          .slice(0, limit) // Retornar apenas os "limit" primeiros
+      )
+    );
+  }
+
+  searchVideosByCategory(category: string): Observable<IVideo[]> {
+    // Busca com filtro por categoria
+    return this.http.get<IVideo[]>(`${this.apiUrl}/videos?category_like=${category}`);
+  }
+
+  // updateLikedVideos(userId: number, videoId: string): Observable<any> {
+  //   return this.http.patch(`http://localhost:3000/users/${userId}`, {
+  //     likedVideos: [...likedVideos, videoId],
+  //   });
+  // }
+}
