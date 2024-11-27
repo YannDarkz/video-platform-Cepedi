@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: rgb(20, 23, 26);
+    position: relative;
+}
+
+article {
+    background-color: rgb(30, 34, 37);
+}
