@@ -27,13 +27,10 @@ export class AppComponent {
   ngOnInit() {
     this.auth.isAuthenticated$.subscribe((isAuthenticated) => {
       if (isAuthenticated) {
-        this.router.navigate(['/home']);
 
         this.auth.user$.subscribe(user => {
-          // console.log("uzer", user)
   
           if (user) {
-            // console.log("uzi app", user);
             const provider = user.sub ? this.getProvider(user.sub) : 'Unknown';
             
             const userData = {
