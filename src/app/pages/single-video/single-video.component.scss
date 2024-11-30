@@ -88,4 +88,38 @@
 
     }
 
+    .like-info-card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 80vw;
+        margin: 2vh auto;
+        padding: 1.5rem;
+        background-color: #292b36;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        color: #fff;
+        text-align: center;
+      
+        .like-info-icon {
+          margin-bottom: 1rem;
+      
+          .like-icon {
+            width: 3rem;
+            height: 3rem;
+            color: #00C896;
+          }
+        }
+      
+        p {
+          width: 100%;
+          font-size: 1rem;
+          font-weight: 500;
+          line-height: 1.5;
+          color: #e5e5e5;
+        }
+      }
+      
+
 }
