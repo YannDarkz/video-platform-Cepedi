@@ -53,7 +53,7 @@ nav {
         right: -30px;
         width: 40px;
         height: 40px;
-        background-color: white;
+        background-color: rgba(255, 255, 255, 0.425);
         border-radius: 50%;
         cursor: pointer;
         box-shadow: #6067EB50 0px 2px 8px 0px;
@@ -61,6 +61,11 @@ nav {
         img {
             width: 38px;
             height: 38px;
+        }
+
+        @media(min-width: 400px){
+            background-color: rgb(255, 255, 255);
+
         }
     }
 }
@@ -73,10 +78,15 @@ nav {
             .tooltip {
                 position: relative;
 
-                img {
-                    padding-right: 2vw;
-                }
+                svg {
+                    width: 15px;
+                    margin-right: 1vw;
 
+                    @media(min-width: 760px){
+                        
+                        width: 35px;
+                    }
+                }
                 .tooltip__content {
                     visibility: hidden;
                     background-color: #6067EB ;
@@ -114,6 +124,8 @@ nav {
                     color: white;
                     cursor: pointer;
                 }
+
+               
 
                 
             }
@@ -156,6 +168,17 @@ nav {
 
         h4 {
             text-align: center;
+        }
+        p {
+            color: #6067EB;
+            // padding-left: 6vw;
+            font-size: 10px;
+
+            @media(min-width:600px)  {
+                width: 10vw;
+                
+            }
+
         }
     }
 }
