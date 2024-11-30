@@ -1,7 +1,8 @@
-<div *ngIf="!(auth.isAuthenticated$ | async)">
+<div class="login-container">
+  <div class="login-card">
+    <img src="/images/cadeado-login.webp" alt="Login Illustration" />
+    <h1>Bem-vindo</h1>
+    <p>Faça login para acessar sua conta</p>
     <button (click)="loginWithRedirect()">Login</button>
   </div>
-  
-  <div *ngIf="auth.isAuthenticated$ | async">
-    <button (click)="logout()">Logout</button>
-  </div>
+</div>
