@@ -35,16 +35,21 @@ export class VideoService {
     return this.http.get<IVideo[]>(`${this.apiUrl}/videos`).pipe(
       map((videos) =>
         videos
-          .sort((a, b) => (b.likes || 0) - (a.likes || 0)) // Ordenar por likes em ordem decrescente
-          .slice(0, limit) // Retornar apenas os "limit" primeiros
+          .sort((a, b) => (b.likes || 0) - (a.likes || 0)) 
+          .slice(0, limit) 
       )
     );
   }
 
   searchVideosByCategory(category: string): Observable<IVideo[]> {
-    // Busca com filtro por categoria
     return this.http.get<IVideo[]>(`${this.apiUrl}/videos?category_like=${category}`);
   }
+
+  getVideos(): Observable<IVideo[]> {
+    return this.http.get<IVideo[]>(`${this.apiUrl}/videos`);
+  }
+
+
 
   // updateLikedVideos(userId: number, videoId: string): Observable<any> {
   //   return this.http.patch(`http://localhost:3000/users/${userId}`, {
