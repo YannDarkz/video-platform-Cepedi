@@ -84,7 +84,7 @@ main {
             li {
                 list-style: none;
                 border: 1px solid #cd7f32;
-                width: 35%;
+                width: 60%;
                 margin: 0.5vh auto 0 auto;
                 color: #fff;
                 padding: 2px;
@@ -93,6 +93,11 @@ main {
 
                 &:hover {
                     color: #cd7f32;
+                }
+
+                @media(min-width:500px) {
+                    width: 40%;
+                    
                 }
 
 
