@@ -22,6 +22,7 @@ export const routes: Routes = [
     { path: 'videos/:id', component: SingleVideoComponent, canActivate: [authGuard] },
 
 
+
 ];
 
 @NgModule({
