@@ -20,7 +20,7 @@ export const routes: Routes = [
     { path: 'favorites', component: FavoritesComponent, canActivate: [authGuard] },
     { path: 'videos', component: AllVideosComponent, canActivate: [authGuard] },
     { path: 'videos/:id', component: SingleVideoComponent, canActivate: [authGuard] },
-
+    { path: '**', redirectTo: '', pathMatch: 'full' },
 
 
 ];
